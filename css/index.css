@@ -433,6 +433,86 @@
   max-height: none;
 }
 
+/* -------------- contact us --------------- */
+.contact-us {
+  position: relative;
+}
+
+.contact-us-padding {
+  padding: var(--py100);
+}
+
+.contact-us-gradient {
+  background: linear-gradient(96.83deg, #ffffff 33.05%, #c8e9fe 117.05%);
+  height: 645px;
+  position: absolute;
+  top: 0;
+  z-index: -30;
+  left: 0;
+  right: 0;
+}
+
+.contact-us-card {
+  box-shadow: 1px 2px 12px 0px #00000040;
+  border-radius: 22px;
+  background-color: #fff;
+  padding: 40px;
+  display: flex;
+  gap: 24px;
+}
+
+.connect-with-us {
+  padding: 22px;
+  background: linear-gradient(315.39deg, #3aaffa 9.62%, #0abb73 90.38%);
+  width: 100%;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.connect-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.connect-info h3 {
+  font-size: var(--font32);
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  color: var(--white);
+}
+
+.connect-info p {
+  font-size: var(--font20);
+  font-family: var(--font-open-sans);
+  font-weight: 600;
+  color: var(--white);
+}
+
+.connect-info div {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.connect-info div div {
+  font-size: var(--font16);
+  font-family: var(--font-open-sans);
+  font-weight: 600;
+  color: var(--white);
+}
+
+.connect-with-us iframe {
+  border-radius: 12px;
+}
+
+.connect-with-us-form {
+  width: 100%;
+  border: 1px solid brown;
+  padding: 22px;
+}
+
 /* ---------------------footer------------------- */
 
 .footer {
@@ -663,5 +743,11 @@
 
   .navbar .container {
     padding: 0 !important;
+  }
+  .contact-us-card {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 }

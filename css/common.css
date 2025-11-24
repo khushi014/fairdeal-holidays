@@ -470,47 +470,6 @@ body {
   z-index: -1;
 }
 
-.specialities {
-  position: relative;
-  padding: var(--py100);
-  background-color: var(--primary);
-  z-index: 0;
-}
-
-.specialities .speciality-navigation {
-  text-decoration: none;
-}
-
-.specialities .section-title h6 {
-  color: var(--white);
-}
-
-.opd-speciality-details {
-  display: flex;
-  align-items: center;
-  background-color: var(--white);
-  z-index: 100;
-  padding: 10px;
-  margin-bottom: 24px;
-  border-radius: 8px;
-}
-
-.opd-speciality-details img {
-  margin-right: 10px;
-}
-
-.opd-speciality-details h6 {
-  font-family: var(--font-poppins);
-  font-size: var(--font18);
-  font-weight: 400;
-  color: var(--gray54);
-}
-
-.specialities .section-details h2 {
-  color: var(--white);
-  margin-bottom: 40px;
-}
-
 .section-title {
   display: flex;
   align-items: center;
@@ -552,16 +511,6 @@ body {
   text-align: center;
 }
 
-@media (1024px <=width <=1200px) {
-  .opd-speciality-details h6 {
-    font-size: 14px;
-  }
-
-  .cta-btn button {
-    font-size: 16px;
-  }
-}
-
 @media (1200px <=width <=1600px) {
   .navbar,
   .topbar {
@@ -574,14 +523,6 @@ body {
 }
 
 @media (768px <=width <=1023px) {
-  .main-carousel-image img {
-    margin-top: 24px;
-  }
-
-  .specialities {
-    padding: var(--py60);
-  }
-
   .footer .footer-page-links {
     justify-content: start !important;
     margin: 20px 0;
@@ -606,26 +547,6 @@ body {
     font-size: var(--font20);
   }
 
-  .speciality-doctor-card-detail h4 {
-    font-size: var(--font18);
-  }
-
-  .speciality-doctor-card-detail h5 {
-    font-size: var(--font16);
-  }
-
-  .speciality-doctor-card-detail p {
-    font-size: var(--font16);
-  }
-
-  .speciality-doctor-cards .cta-btn button {
-    font-size: var(--font16);
-  }
-
-  .specialities .section-details h2 {
-    font-size: var(--font24);
-  }
-
   .section-title {
     margin-top: 20px;
   }
@@ -640,7 +561,6 @@ body {
 }
 
 @media (568px <=width <=767px) {
-  .specialities,
   .main-slider {
     padding: var(--py60);
   }
@@ -674,26 +594,6 @@ body {
     font-size: var(--font20);
   }
 
-  .speciality-doctor-card-detail h4 {
-    font-size: var(--font18);
-  }
-
-  .speciality-doctor-card-detail h5 {
-    font-size: var(--font16);
-  }
-
-  .speciality-doctor-card-detail p {
-    font-size: var(--font16);
-  }
-
-  .speciality-doctor-cards .cta-btn button {
-    font-size: var(--font16);
-  }
-
-  .specialities .section-details h2 {
-    font-size: var(--font24);
-  }
-
   .section-title {
     margin-top: 20px;
   }
@@ -723,10 +623,6 @@ body {
 }
 
 @media (480px <=width <=567px) {
-  .specialities {
-    padding: var(--py40);
-  }
-
   .navbar,
   .topbar {
     padding: 16px;
@@ -1043,6 +939,7 @@ body {
 
 .services-header,
 .destinations-header,
+.contact-header,
 .testimonials-header,
 .about-heading {
   display: flex;
@@ -1055,6 +952,7 @@ body {
 
 .services-header h2,
 .destinations-header h2,
+.contact-header h2,
 .testimonials-header h2,
 .about-heading h2 {
   font-family: var(--font-poppins);
@@ -1070,6 +968,7 @@ body {
 
 .services-header p,
 .destinations-header p,
+.contact-header p,
 .testimonials-header p,
 .about-heading p {
   font-family: var(--font-open-sans);
