@@ -33,7 +33,7 @@ function loadServices() {
 
   services.forEach((service) => {
     const col = document.createElement("div");
-    col.className = "col-md-3";
+    col.className = "col-md-3 d-flex justify-content-center";
 
     col.innerHTML = `
                      <div class="service-card-shadow">

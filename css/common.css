@@ -41,7 +41,7 @@ body {
   --gray57: #574d49;
   --white: #fff;
 
-  --py100: clamp(32px, 5vw, 100px) 0;
+  --py100: clamp(56px, 2.33vw + 48.5px, 100px) 0;
   --py72: clamp(32px, 5vw, 72px) 0;
 
   --EASE_INOUT_QUAD: cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -86,31 +86,33 @@ body {
   position: relative;
   width: 108px;
   height: 108px;
-  border: 8px solid #3A464E;
+  border: 8px solid #3a464e;
   border-radius: 50%;
   cursor: pointer;
   animation: rotating 2s infinite linear;
 }
 
 .travel-loader::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 70px;
   height: 30px;
-  background:
-    linear-gradient(31deg, #FFF calc(100% - 3em), transparent .5em),
-    linear-gradient(15deg, #FF7043 calc(100% - 2em), transparent 1em);
+  background: linear-gradient(31deg, #fff calc(100% - 3em), transparent 0.5em),
+    linear-gradient(15deg, #ff7043 calc(100% - 2em), transparent 1em);
   transform: translate(30%, 50%);
 }
 
 .travel-loader::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 70px;
   height: 30px;
-  background:
-    linear-gradient(-31deg, transparent calc(100% - .85em), #FFF .5em),
-    linear-gradient(-15deg, transparent calc(100% - 1em), #FF5722 2em);
+  background: linear-gradient(
+      -31deg,
+      transparent calc(100% - 0.85em),
+      #fff 0.5em
+    ),
+    linear-gradient(-15deg, transparent calc(100% - 1em), #ff5722 2em);
   transform: translate(30%, 150%);
 }
 
@@ -561,7 +563,6 @@ body {
 }
 
 @media (1200px <=width <=1600px) {
-
   .navbar,
   .topbar {
     padding: 20px 50px;
@@ -639,7 +640,6 @@ body {
 }
 
 @media (568px <=width <=767px) {
-
   .specialities,
   .main-slider {
     padding: var(--py60);
@@ -931,7 +931,7 @@ body {
   margin-top: -1px;
 }
 
-.dropdown-submenu:hover>.dropdown-menu {
+.dropdown-submenu:hover > .dropdown-menu {
   display: block;
 }
 
@@ -956,13 +956,13 @@ body {
   align-items: center;
 }
 
-.commonmenu ul.commonmenu-nav>li {
+.commonmenu ul.commonmenu-nav > li {
   position: relative;
   float: left;
   width: auto;
 }
 
-.commonmenu ul.commonmenu-nav>li a:hover {
+.commonmenu ul.commonmenu-nav > li a:hover {
   color: transparent !important;
   background: linear-gradient(90deg, #0aba73 0%, #3aaffa 100%);
   -webkit-background-clip: text;
@@ -970,7 +970,7 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-.commonmenu ul li.dropdownitem>a:after {
+.commonmenu ul li.dropdownitem > a:after {
   width: 18px;
   height: 24px;
   text-align: center;
@@ -1080,7 +1080,6 @@ body {
 }
 
 @media screen and (max-width: 1200px) {
-
   .menu-open,
   .menu-close {
     cursor: pointer;
@@ -1171,12 +1170,12 @@ body {
     }
   }
 
-  .commonmenu ul.commonmenu-nav>li {
+  .commonmenu ul.commonmenu-nav > li {
     float: left;
     width: 100%;
   }
 
-  .commonmenu ul.commonmenu-nav>li a {
+  .commonmenu ul.commonmenu-nav > li a {
     float: left;
     width: 100%;
     text-decoration: none;
@@ -1185,7 +1184,7 @@ body {
     border-bottom: 1px solid #ddd;
   }
 
-  .commonmenu ul.commonmenu-nav>li a:hover {
+  .commonmenu ul.commonmenu-nav > li a:hover {
     float: left;
     width: 100%;
     transition: all 0.25s ease-out;
@@ -1193,7 +1192,7 @@ body {
     padding: 10px 0px;
   }
 
-  .commonmenu ul li.dropdownitem>a:hover:after {
+  .commonmenu ul li.dropdownitem > a:hover:after {
     background-color: rgb(103, 130, 252) !important;
   }
 
@@ -1202,22 +1201,22 @@ body {
     border-bottom: 1px solid var(--primary) !important;
   }
 
-  .commonmenu ul.commonmenu-nav>li:last-child a {
+  .commonmenu ul.commonmenu-nav > li:last-child a {
     border-bottom: 0px solid #ddd;
   }
 
-  .commonmenu.active ul li .nav-dropdown.opened+.dropdown ul {
+  .commonmenu.active ul li .nav-dropdown.opened + .dropdown ul {
     list-style: none;
     float: left;
     margin-left: 0px;
     padding-left: 7px;
   }
 
-  .commonmenu.active ul li .nav-dropdown.opened+.dropdown ul .dropdown ul {
+  .commonmenu.active ul li .nav-dropdown.opened + .dropdown ul .dropdown ul {
     padding-left: 15px;
   }
 
-  .commonmenu.active ul li .nav-dropdown.opened+.dropdown {
+  .commonmenu.active ul li .nav-dropdown.opened + .dropdown {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -1230,7 +1229,7 @@ body {
     width: 100%;
   }
 
-  .commonmenu.active ul li.dropdownitem:hover+.dropdown+.dropdown {
+  .commonmenu.active ul li.dropdownitem:hover + .dropdown + .dropdown {
     display: none;
   }
 
@@ -1292,14 +1291,14 @@ body {
     mask-image: url('data:image/svg+xml;charset=utf-8,<svg width="30px" height="30px" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"></path></svg>');
   }
 
-  .commonmenu.active ul li.dropdownitem>a.opened:after {
+  .commonmenu.active ul li.dropdownitem > a.opened:after {
     -webkit-mask-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="12px" height="12px" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/></svg>') !important;
     mask-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="12px" height="12px" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/></svg>') !important;
   }
 }
 
 @media screen and (min-width: 1201px) {
-  .commonmenu ul.commonmenu-nav>li a {
+  .commonmenu ul.commonmenu-nav > li a {
     color: #333 !important;
     font-weight: 500;
     text-decoration: none;
@@ -1321,11 +1320,11 @@ body {
     padding-top: 0px !important;
   }
 
-  .commonmenu ul li.dropdownitem:hover>a {
+  .commonmenu ul li.dropdownitem:hover > a {
     border-radius: 8px 8px 0px 0px !important;
   }
 
-  .commonmenu ul li.dropdownitem ul li.dropdownitem:hover>a {
+  .commonmenu ul li.dropdownitem ul li.dropdownitem:hover > a {
     border-radius: 8px !important;
   }
 

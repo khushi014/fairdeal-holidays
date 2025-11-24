@@ -4,7 +4,7 @@ function loadServices() {
   const destinations = [
     {
       title: "Rajasthan",
-      img: "/images/rajasthan.png",
+      img: "/images/rajasthan.jpeg",
       desc: "Royal forts, golden deserts, regal palaces, rich culture, and unforgettable heritage journeys.",
     },
     {
