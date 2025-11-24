@@ -505,6 +505,9 @@
 
 .connect-with-us iframe {
   border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  max-height: 250px !important;
 }
 
 .connect-with-us-form {
