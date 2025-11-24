@@ -515,6 +515,10 @@
   padding: 22px;
 }
 
+#hs-form-virality-container {
+  display: none !important;
+}
+
 /* ---------------------footer------------------- */
 
 .footer {
