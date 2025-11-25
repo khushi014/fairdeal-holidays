@@ -49,6 +49,10 @@
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png" />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+    />
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/owl.carousel.min.css" />
@@ -240,7 +244,7 @@
                   />
                 </svg>
 
-                <a href="tel:+919876543210">+91 9876543210</a>
+                <a href="tel:+919081812717">+91 90818 12717</a>
               </div>
               <div class="topmenu-topbar-details">
                 <svg
@@ -267,8 +271,8 @@
                   </defs>
                 </svg>
 
-                <a href="mailto:info@fairdealholidays.com"
-                  >info@fairdealholidays.com</a
+                <a href="mailto:fairdealholidays4u@gmail.com.com"
+                  >fairdealholidays4u@gmail.com.com</a
                 >
               </div>
             </div>
@@ -497,7 +501,7 @@
                       <img src="/images/mail.svg" class="img-fluid" alt="" />
                       <div>
                         fairdeal.ajay@gmail.com <br />
-                        fairdealholidays4u@gmail.xom
+                        fairdealholidays4u@gmail.com
                       </div>
                     </div>
                   </div>
@@ -510,24 +514,66 @@
                   ></iframe>
                 </div>
                 <div class="connect-with-us-form">
-                  <form id="myCustomForm">
-                    <input
-                      type="text"
-                      id="firstname"
-                      placeholder="First Name"
-                      required
-                    />
-                    <input
-                      type="email"
-                      id="email"
-                      placeholder="Email"
-                      required
-                    />
+                  <div id="successMessage" class="success-message">
+                    Form submitted successfully!
+                  </div>
+
+                  <form id="myCustomForm" class="contact-form">
+                    <div class="form-div">
+                      <label for="name">Name *</label>
+                      <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                        required
+                      />
+                      <span class="error-message" id="nameError"
+                        >Please enter a valid name (minimum 2 characters)</span
+                      >
+                    </div>
+
+                    <div class="form-div">
+                      <label for="phone">Phone *</label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter your phone"
+                        required
+                      />
+                      <span class="error-message" id="phoneError"
+                        >Please enter a valid phone number</span
+                      >
+                    </div>
+
+                    <div class="form-div">
+                      <label for="email">Email *</label>
+                      <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                      />
+                      <span class="error-message" id="emailError"
+                        >Please enter a valid email address</span
+                      >
+                    </div>
+
+                    <div class="form-div">
+                      <label for="message">Message *</label>
+                      <textarea
+                        name="message"
+                        id="message"
+                        rows="3"
+                        placeholder="Type your message here"
+                        required
+                      ></textarea>
+                      <span class="error-message" id="messageError"
+                        >Message must be at least 10 characters</span
+                      >
+                    </div>
 
                     <button type="submit">Submit</button>
                   </form>
-
-                  <p id="message"></p>
                 </div>
               </div>
             </div>
@@ -888,38 +934,159 @@
       defer
       src="//js-na2.hs-scripts.com/244391712.js"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <script>
+      let iti;
+
+      // Initialize intl-tel-input
+      document.addEventListener("DOMContentLoaded", function () {
+        const phoneInput = document.getElementById("phone");
+        iti = window.intlTelInput(phoneInput, {
+          initialCountry: "in",
+          preferredCountries: ["in", "us", "gb"],
+          separateDialCode: true,
+          utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        });
+      });
+
+      // Validation functions
+      function validateName(name) {
+        return name.trim().length >= 2 && /^[a-zA-Z\s]+$/.test(name);
+      }
+
+      function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
+      function validatePhone() {
+        return iti.isValidNumber();
+      }
+
+      function validateMessage(message) {
+        return message.trim().length >= 10;
+      }
+
+      function showError(inputId, errorId, isValid) {
+        const input = document.getElementById(inputId);
+        const error = document.getElementById(errorId);
+
+        if (!isValid) {
+          input.classList.add("error");
+          input.classList.remove("success");
+          error.classList.add("show");
+        } else {
+          input.classList.remove("error");
+          input.classList.add("success");
+          error.classList.remove("show");
+        }
+      }
+
+      // Real-time validation
+      document.getElementById("name").addEventListener("blur", function () {
+        const isValid = validateName(this.value);
+        showError("name", "nameError", isValid);
+      });
+
+      document.getElementById("email").addEventListener("blur", function () {
+        const isValid = validateEmail(this.value);
+        showError("email", "emailError", isValid);
+      });
+
+      document.getElementById("phone").addEventListener("blur", function () {
+        const isValid = validatePhone();
+        showError("phone", "phoneError", isValid);
+      });
+
+      document.getElementById("message").addEventListener("blur", function () {
+        const isValid = validateMessage(this.value);
+        showError("message", "messageError", isValid);
+      });
+
+      // Form submission
       document
         .getElementById("myCustomForm")
         .addEventListener("submit", function (e) {
           e.preventDefault();
 
-          const data = {
-            fields: [
-              {
-                name: "firstname",
-                value: document.getElementById("firstname").value,
-              },
-              { name: "email", value: document.getElementById("email").value },
-            ],
-          };
+          // Get form values
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const phone = document.getElementById("phone").value;
+          const message = document.getElementById("message").value;
 
-          fetch(
-            "https://api.hsforms.com/submissions/v3/integration/submit/244391712/a8d23cda-4481-4efd-9701-0b259bb6f66f",
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(data),
-            }
-          )
-            .then((res) => res.json())
-            .then((result) => {
-              document.getElementById("message").innerText = "Form submitted!";
-              console.log(result);
-            })
-            .catch((err) => console.error(err));
+          // Validate all fields
+          const isNameValid = validateName(name);
+          const isEmailValid = validateEmail(email);
+          const isPhoneValid = validatePhone();
+          const isMessageValid = validateMessage(message);
+
+          // Show errors
+          showError("name", "nameError", isNameValid);
+          showError("email", "emailError", isEmailValid);
+          showError("phone", "phoneError", isPhoneValid);
+          showError("message", "messageError", isMessageValid);
+
+          // If all valid, submit
+          if (isNameValid && isEmailValid && isPhoneValid && isMessageValid) {
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Submitting...";
+
+            const data = {
+              fields: [
+                { name: "firstname", value: name },
+                { name: "email", value: email },
+                { name: "phone", value: iti.getNumber() },
+                { name: "message", value: message },
+              ],
+            };
+
+            fetch(
+              "https://api.hsforms.com/submissions/v3/integration/submit/244391712/a8d23cda-4481-4efd-9701-0b259bb6f66f",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+              }
+            )
+              .then((res) => res.json())
+              .then((result) => {
+                // Hide form and show success message
+                document.getElementById("myCustomForm").classList.add("hide");
+                document.getElementById("successMessage").classList.add("show");
+
+                // Optional: Reset and show form again after 5 seconds
+                setTimeout(() => {
+                  document
+                    .getElementById("successMessage")
+                    .classList.remove("show");
+                  document
+                    .getElementById("myCustomForm")
+                    .classList.remove("hide");
+                  document.getElementById("myCustomForm").reset();
+                  iti.setCountry("in");
+
+                  // Remove success classes
+                  document.querySelectorAll(".success").forEach((el) => {
+                    el.classList.remove("success");
+                  });
+                }, 5000);
+              })
+              .catch((err) => {
+                console.log(err);
+                alert(
+                  "There was an error submitting the form. Please try again."
+                );
+              })
+              .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Submit";
+              });
+          }
         });
     </script>
 

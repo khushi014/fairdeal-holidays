@@ -33,12 +33,12 @@ function loadServices() {
 
   services.forEach((service) => {
     const col = document.createElement("div");
-    col.className = "col-md-3 d-flex justify-content-center";
+    col.className = "col-lg-3 col-md-4 d-flex justify-content-center";
 
     col.innerHTML = `
-                     <div class="service-card-shadow">
+            <div class="service-card-shadow">
               <div class="service-card">
-               <img src='${service.svgPath}' alt='${service.title}' class='img-fluid'/>
+                <img src='${service.svgPath}' alt='${service.title}' class='img-fluid'/>
                 <h3>${service.title}</h3>
               </div>
             </div>
