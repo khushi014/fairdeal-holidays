@@ -510,16 +510,24 @@
                   ></iframe>
                 </div>
                 <div class="connect-with-us-form">
-                  <script
-                    src="https://js-na2.hsforms.net/forms/embed/244391712.js"
-                    defer
-                  ></script>
-                  <div
-                    class="hs-form-frame"
-                    data-region="na2"
-                    data-form-id="a8d23cda-4481-4efd-9701-0b259bb6f66f"
-                    data-portal-id="244391712"
-                  ></div>
+                  <form id="myCustomForm">
+                    <input
+                      type="text"
+                      id="firstname"
+                      placeholder="First Name"
+                      required
+                    />
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder="Email"
+                      required
+                    />
+
+                    <button type="submit">Submit</button>
+                  </form>
+
+                  <p id="message"></p>
                 </div>
               </div>
             </div>
@@ -873,6 +881,48 @@
         }, 500); // Match this to CSS transition duration
       });
     </script>
+    <script
+      type="text/javascript"
+      id="hs-script-loader"
+      async
+      defer
+      src="//js-na2.hs-scripts.com/244391712.js"
+    ></script>
+    <script>
+      document
+        .getElementById("myCustomForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const data = {
+            fields: [
+              {
+                name: "firstname",
+                value: document.getElementById("firstname").value,
+              },
+              { name: "email", value: document.getElementById("email").value },
+            ],
+          };
+
+          fetch(
+            "https://api.hsforms.com/submissions/v3/integration/submit/244391712/a8d23cda-4481-4efd-9701-0b259bb6f66f",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            }
+          )
+            .then((res) => res.json())
+            .then((result) => {
+              document.getElementById("message").innerText = "Form submitted!";
+              console.log(result);
+            })
+            .catch((err) => console.error(err));
+        });
+    </script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
