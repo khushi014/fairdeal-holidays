@@ -222,6 +222,7 @@ body {
   font-size: var(--font24);
   font-weight: 500;
   color: var(--white);
+  margin-bottom: 0;
 }
 
 .footer-page-links img,
@@ -277,14 +278,6 @@ body {
   font-size: var(--font18);
   font-weight: 400;
   color: var(--white);
-}
-
-.footer-pdf h2 {
-  font-family: var(--font-poppins);
-  font-size: 24px;
-  font-weight: 500;
-  color: var(--white);
-  margin-bottom: 16px;
 }
 
 .footer-pdf p {
@@ -947,6 +940,7 @@ body {
 .testimonials-section,
 .about-us {
   padding: var(--py100);
+  overflow: hidden;
 }
 
 .services-header,
@@ -972,6 +966,7 @@ body {
   font-weight: 700;
   line-height: 56px;
   text-align: center;
+  margin-bottom: 0;
   color: transparent;
   background: linear-gradient(90deg, #39affa 41.36%, #09ba73 61.19%);
   -webkit-background-clip: text;
@@ -1353,5 +1348,24 @@ body {
 @media screen and (max-width: 400px) {
   .commonmenu.active {
     width: 100%;
+  }
+}
+
+@media (320px <=width <=767px) {
+  .services-header,
+  .destinations-header,
+  .contact-header,
+  .testimonials-header,
+  .about-heading {
+    margin-bottom: 24px;
+    gap: 16px;
+  }
+
+  .services-header p,
+  .destinations-header p,
+  .contact-header p,
+  .testimonials-header p,
+  .about-heading p {
+    margin-bottom: 0;
   }
 }

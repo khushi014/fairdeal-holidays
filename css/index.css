@@ -27,7 +27,7 @@
   --gray57: #574d49;
   --white: #fff;
 
-  --py100: clamp(32px, 5vw, 100px) 0;
+  --py100: clamp(54px, 5vw, 100px) 0;
   --py72: clamp(32px, 5vw, 72px) 0;
 }
 
@@ -83,6 +83,7 @@
   line-height: 56px;
   color: var(--white);
   text-align: center;
+  margin-bottom: 0;
   text-transform: uppercase;
 }
 
@@ -197,6 +198,7 @@
   font-size: var(--font44);
   font-weight: 700;
   line-height: 56px;
+  margin-bottom: 0;
   text-align: center;
   color: var(--white);
 }
@@ -284,6 +286,7 @@
   font-family: var(--font-poppins);
   font-size: var(--font24);
   font-weight: 500;
+  margin-bottom: 0;
   color: var(--gray57);
   margin-bottom: 4px;
   text-align: center;
@@ -301,9 +304,16 @@
 
 .owl-nav .owl-prev {
   position: absolute;
-  top: calc(50%, -25px);
-  left: 0;
+  left: -55px;
   top: 50%;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  background: #ffffff10 !important;
+  display: flex;
+  backdrop-filter: blur(4px);
+  align-items: center;
+  justify-content: center;
   opacity: 1;
   font-size: 30px !important;
   z-index: 1;
@@ -311,20 +321,19 @@
 
 .owl-nav .owl-next {
   position: absolute;
-  top: calc(50%, -25px);
   top: 50%;
-  right: 0;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  background: #ffffff10 !important;
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  right: -55px;
   opacity: 1;
   font-size: 30px !important;
   z-index: 1;
-}
-
-.owl-carousel .owl-nav button.owl-prev {
-  background-image: url(/images/carousel-prev-icon.svg) !important;
-}
-
-.owl-next {
-  background-image: url(/images/carousel-next-icon.svg) !important;
 }
 
 .about-us {
@@ -393,6 +402,7 @@
   transition: transform 0.5s ease, opacity 0.5s ease;
   transform: translateY(20px);
   opacity: 1;
+  margin-bottom: 0;
   background: #38bdf866;
   font-family: var(--font-poppins);
   font-size: var(--font18);
@@ -880,5 +890,19 @@ button[type="submit"]:disabled {
     display: flex;
     flex-direction: column;
     gap: 12px;
+  }
+  .about-heading {
+    padding: 8px;
+  }
+  .about-heading h2 {
+    text-align: center;
+    width: 100%;
+  }
+  .about-heading p {
+    text-align: center !important;
+  }
+
+  .connect-with-us-form {
+    padding: 0;
   }
 }
