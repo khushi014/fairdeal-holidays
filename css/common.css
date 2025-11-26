@@ -180,6 +180,11 @@ body {
   padding: 16px 80px;
 }
 
+.navbar-brand img {
+  height: 60px !important;
+  width: auto;
+}
+
 .navbar-color {
   background-color: var(--white);
 }
@@ -667,7 +672,8 @@ body {
   }
 
   .navbar-brand img {
-    width: 80%;
+    height: 40px;
+    width: auto;
   }
 
   .specialities .section-details h2 {
@@ -783,7 +789,8 @@ body {
   }
 
   .navbar-brand img {
-    width: 80%;
+    width: auto;
+    height: 40px;
   }
 
   .navbar {
