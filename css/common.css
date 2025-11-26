@@ -846,6 +846,10 @@ body {
   margin-bottom: 0;
 }
 
+.mobile-logo {
+  display: none;
+}
+
 .commonmenu ul.commonmenu-nav .item a {
   color: var(--gray54) !important;
   font-family: var(--font-poppins);
@@ -1025,7 +1029,10 @@ body {
     top: 0px;
     float: left;
   }
-
+  .mobile-logo {
+    display: block;
+    margin-bottom: 24px;
+  }
   .commonmenu-nav {
     display: none !important;
   }
