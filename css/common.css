@@ -177,6 +177,7 @@ body {
 
 .navbar {
   padding: 16px 80px;
+  box-shadow: 0px 2px 2px 0px #2525251a;
 }
 
 .navbar-brand img {

@@ -14,10 +14,10 @@ function loadServices() {
       title: "Subba Rao Ganti",
       desc: "We have been availing the services of Fairdeal for the past 20 years on various occasions. Fairdeal offers exceptionally high quality professional services with a touch of love and affection. Their prompt response to address any issues during ticketing, travel etc., is commendable. My best wishes to Fairdeal in providing great services to their customers.",
     },
-    {
-      title: "Veerabhadra Sarma Ganti",
-      desc: "Fairdeal is committed to customer service. They provide five star service",
-    },
+    // {
+    //   title: "Veerabhadra Sarma Ganti",
+    //   desc: "Fairdeal is committed to customer service. They provide five star service",
+    // },
   ];
 
   testimonials.forEach((testimonial) => {
