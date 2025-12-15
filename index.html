@@ -15,7 +15,7 @@
 
     <!-- Open Graph / Facebook Meta Tags -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://fairdeal-holidays.netlify.app/" />
+    <meta property="og:url" content="https://fairdealholidays.com/" />
     <meta property="og:title" content="Fairdeal Holidays" />
     <meta
       property="og:description"
@@ -23,7 +23,7 @@
     />
     <meta
       property="og:image"
-      content="https://fairdeal-holidays.netlify.app/images/logo.png"
+      content="https://fairdealholidays.com/images/logo.png"
     />
 
     <!-- Twitter Meta Tags -->
@@ -31,10 +31,7 @@
       property="twitter:card"
       content="Fairdeal Holidays delivers family-friendly vacations, international & domestic tour packages, visa and passport assistance, air ticketing, cruise bookings, hotel stays and travel insurance. With 27+ years of trusted experience, we help travelers explore top destinations with seamless planning and support."
     />
-    <meta
-      property="twitter:url"
-      content="https://fairdeal-holidays.netlify.app/"
-    />
+    <meta property="twitter:url" content="https://fairdealholidays.com/" />
     <meta property="twitter:title" content="Fairdeal Holidays" />
     <meta
       property="twitter:description"
@@ -42,7 +39,7 @@
     />
     <meta
       property="twitter:image"
-      content="https://fairdeal-holidays.netlify.app/images/logo.png"
+      content="https://fairdealholidays.com/images/logo.png"
     />
 
     <!-- Optional: Favicon -->
@@ -509,7 +506,7 @@
                       <div>
                         Mobile: +91 9824012717
                         <br />
-                        Office: +91 7626301414 | +91 7626303131
+                        Office: +91 9081812717
                       </div>
                     </div>
                     <div>
@@ -533,20 +530,33 @@
                     Form submitted successfully!
                   </div>
 
-                  <form id="myCustomForm" class="contact-form">
+                  <form id="website-lead" class="contact-form">
                     <div class="form-div">
-                      <label for="name">Name</label>
+                      <label for="firstname">First Name</label>
                       <input
                         type="text"
-                        id="name"
-                        placeholder="Enter your name"
+                        id="firstname"
+                        placeholder="Enter your first name"
                         required
                       />
-                      <span class="error-message" id="nameError"
-                        >Please enter a valid name (minimum 2 characters)</span
+                      <span class="error-message" id="firstnameError"
+                        >Please enter a valid first name (minimum 2
+                        characters)</span
                       >
                     </div>
-
+                    <div class="form-div">
+                      <label for="lastname">Last Name</label>
+                      <input
+                        type="text"
+                        id="lastname"
+                        placeholder="Enter your last name"
+                        required
+                      />
+                      <span class="error-message" id="lastnameError"
+                        >Please enter a valid last name (minimum 2
+                        characters)</span
+                      >
+                    </div>
                     <div class="form-div">
                       <label for="phone">Phone</label>
                       <input
@@ -604,7 +614,7 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-logo">
-          <img src="images/logo.png" alt="" />
+          <img src="images/logo-header.png" alt="" />
         </div>
         <div class="row">
           <div class="col-lg-5 col-12 margin-btm">
@@ -912,7 +922,7 @@
 
         <div class="bottom-footer-sec">
           <div class="bottom-footer">
-            © 2025. Fairdeal Holidays. All Rights Reserved.
+            © 2025 Fairdeal Holidays. All Rights Reserved.
           </div>
         </div>
       </div>
@@ -1000,11 +1010,16 @@
       }
 
       // Real-time validation
-      document.getElementById("name").addEventListener("blur", function () {
+      document
+        .getElementById("firstname")
+        .addEventListener("blur", function () {
+          const isValid = validateName(this.value);
+          showError("firstname", "firstnameError", isValid);
+        });
+      document.getElementById("lastname").addEventListener("blur", function () {
         const isValid = validateName(this.value);
-        showError("name", "nameError", isValid);
+        showError("lastname", "lastnameError", isValid);
       });
-
       document.getElementById("email").addEventListener("blur", function () {
         const isValid = validateEmail(this.value);
         showError("email", "emailError", isValid);
@@ -1022,37 +1037,47 @@
 
       // Form submission
       document
-        .getElementById("myCustomForm")
+        .getElementById("website-lead")
         .addEventListener("submit", function (e) {
           e.preventDefault();
 
           // Get form values
-          const name = document.getElementById("name").value;
+          const firstname = document.getElementById("firstname").value;
+          const lastname = document.getElementById("lastname").value;
           const email = document.getElementById("email").value;
           const phone = document.getElementById("phone").value;
           const message = document.getElementById("message").value;
 
           // Validate all fields
-          const isNameValid = validateName(name);
+          const isFirstNameValid = validateName(firstname);
+          const isLastNameValid = validateName(lastname);
           const isEmailValid = validateEmail(email);
           const isPhoneValid = validatePhone();
           const isMessageValid = validateMessage(message);
 
           // Show errors
-          showError("name", "nameError", isNameValid);
+          showError("firstname", "firstnameError", isFirstNameValid);
+          showError("lastname", "lastnameError", isLastNameValid);
           showError("email", "emailError", isEmailValid);
           showError("phone", "phoneError", isPhoneValid);
           showError("message", "messageError", isMessageValid);
 
           // If all valid, submit
-          if (isNameValid && isEmailValid && isPhoneValid && isMessageValid) {
+          if (
+            isFirstNameValid &&
+            isLastNameValid &&
+            isEmailValid &&
+            isPhoneValid &&
+            isMessageValid
+          ) {
             const submitBtn = this.querySelector('button[type="submit"]');
             submitBtn.disabled = true;
             submitBtn.textContent = "Submitting...";
 
             const data = {
               fields: [
-                { name: "firstname", value: name },
+                { name: "firstname", value: firstname },
+                { name: "lastname", value: lastname },
                 { name: "email", value: email },
                 { name: "phone", value: iti.getNumber() },
                 { name: "message", value: message },
@@ -1060,7 +1085,8 @@
             };
 
             fetch(
-              "https://api.hsforms.com/submissions/v3/integration/submit/244391712/a8d23cda-4481-4efd-9701-0b259bb6f66f",
+              // "https://api.hsforms.com/submissions/v3/integration/submit/244391712/a8d23cda-4481-4efd-9701-0b259bb6f66f", //local
+              "https://api.hsforms.com/submissions/v3/integration/submit/244372863/8b95b4bc-8b85-4229-9652-99d5949a5260", //live
               {
                 method: "POST",
                 headers: {
@@ -1072,7 +1098,7 @@
               .then((res) => res.json())
               .then((result) => {
                 // Hide form and show success message
-                document.getElementById("myCustomForm").classList.add("hide");
+                document.getElementById("website-lead").classList.add("hide");
                 document.getElementById("successMessage").classList.add("show");
 
                 // Optional: Reset and show form again after 5 seconds
@@ -1081,9 +1107,9 @@
                     .getElementById("successMessage")
                     .classList.remove("show");
                   document
-                    .getElementById("myCustomForm")
+                    .getElementById("website-lead")
                     .classList.remove("hide");
-                  document.getElementById("myCustomForm").reset();
+                  document.getElementById("website-lead").reset();
                   iti.setCountry("in");
 
                   // Remove success classes
