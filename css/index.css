@@ -796,7 +796,7 @@ button[type="submit"]:disabled {
   z-index: 50;
 }
 
-@media (320px <=width <=767px) {
+@media (320px <=width <=800px) {
   .hero-section {
     min-height: 500px;
   }
@@ -842,6 +842,7 @@ button[type="submit"]:disabled {
 
   .right {
     gap: 16px;
+    padding-top: 16px;
     flex-direction: column;
   }
 
